@@ -22,16 +22,16 @@ public void modifyOwnProfile() {
     }
 
     // Method to access a list of all other users in the system
-    public List<Users> getAllUsers(List<Users> allUsers) {
-        List<Users> otherUsers = new ArrayList<>(allUsers);
+    public List<Users> getAllUsers(List<Users> usersList) {
+        List<Users> otherUsers = new ArrayList<>(usersList);
         otherUsers.remove(this); // Remove the manager from the list
         return otherUsers;
     }
 
     // Method to remove other users from the system
-    public void removeUser(List<Users> allStaff, Users userToRemove) {
-        if (allStaff.contains(userToRemove)) {
-            allStaff.remove(userToRemove);
+    public void removeUser(List<Users> usersList, Users userToRemove) {
+        if (usersList.contains(userToRemove)) {
+            usersList.remove(userToRemove);
             System.out.println(userToRemove.getFirstName() + " " + userToRemove.getLastName() + " removed from the system.");
         } else {
             System.out.println("User not found in the system.");
