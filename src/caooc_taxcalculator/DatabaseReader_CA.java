@@ -86,7 +86,8 @@ public Users getUsersData(int UsersID) {
                                 
                 return adm;
                 
-                }else{RegularUser user = new RegularUser (ID, firstName, lastName, email,  PPSN, grossIncome, taxCredit, taxOwed, username, password);
+                }else{
+                RegularUser user = new RegularUser (ID, firstName, lastName, email,  PPSN, grossIncome, taxCredit, taxOwed, username, password);
 
                 return user;
                 }
@@ -95,8 +96,10 @@ public Users getUsersData(int UsersID) {
                 e.printStackTrace();
                 return null;
             } 
+
 }
 }
+
 
     
 
