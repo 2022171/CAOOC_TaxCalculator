@@ -12,23 +12,32 @@ import java.util.List;
  * @author danie
  */
 public class Admin extends Users {
-    
-public void modifyOwnProfile() {
-        // Modifying own profile details
-       // setFirstName(newFirstName);
-      //  setLastName(newLastName);
-        
-        // Any other attributes you want to modify
-    }
 
-    // Method to access a list of all other users in the system
+    public Admin(int ID, String firstName, String lastName, String email, String PPSN, double grossIncome, double taxCredit, double taxOwed, String username, String password) {
+        super(ID, firstName, lastName, email, PPSN, grossIncome, taxCredit, taxOwed, username, password);
+    }
+    
+  public void modifyOwnProfile(String newFirstName, String newLastName, String newemail, String newPPSN, double newgrossIncome, double newtaxCredit, double newtaxOwed, String newusername, String newpassword) {
+        setFirstName(newFirstName);
+        setLastName(newLastName);
+        setEmail(newemail);
+        setPPSN(newPPSN);
+        setGrossIncome(newgrossIncome);
+        setTaxCredit(newtaxCredit);
+        setTaxOwed(newtaxOwed);
+        setUsername(newusername);
+        setPassword(newpassword);
+}
+    
+
+    
     public List<Users> getAllUsers(List<Users> allUsers) {
         List<Users> otherUsers = new ArrayList<>(allUsers);
         otherUsers.remove(this); // Remove the manager from the list
         return otherUsers;
     }
 
-    // Method to remove other users from the system
+   
     public void removeUser(List<Users> allStaff, Users userToRemove) {
         if (allStaff.contains(userToRemove)) {
             allStaff.remove(userToRemove);
@@ -38,12 +47,9 @@ public void modifyOwnProfile() {
         }
     }
 
-    // Method to review the operations performed by other users
+    
     public void reviewUserOperations(Users user) {
-        // Implement logic to review operations performed by a specific user
-        // This could involve accessing logs, database entries, etc.
-        // For example:
-        // user.getOperationsPerformed();
+        
         System.out.println("Reviewing operations performed by " + user.getFirstName() + " " + user.getLastName());
     }
         
