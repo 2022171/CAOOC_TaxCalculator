@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class Admin extends Users {
 
+
     public Admin(int ID, String firstName, String lastName, String email, String PPSN, double grossIncome, double taxCredit, double taxOwed, String username, String password) {
         super(ID, firstName, lastName, email, PPSN, grossIncome, taxCredit, taxOwed, username, password);
     }
@@ -31,16 +32,22 @@ public class Admin extends Users {
     
 
     
-    public List<Users> getAllUsers(List<Users> allUsers) {
-        List<Users> otherUsers = new ArrayList<>(allUsers);
+       
+    // Method to access a list of all other users in the system
+    public List<Users> getAllUsers(List<Users> usersList) {
+        List<Users> otherUsers = new ArrayList<>(usersList);
+
         otherUsers.remove(this); // Remove the manager from the list
         return otherUsers;
     }
 
-   
-    public void removeUser(List<Users> allStaff, Users userToRemove) {
-        if (allStaff.contains(userToRemove)) {
-            allStaff.remove(userToRemove);
+
+
+    // Method to remove other users from the system
+    public void removeUser(List<Users> usersList, Users userToRemove) {
+        if (usersList.contains(userToRemove)) {
+            usersList.remove(userToRemove);
+
             System.out.println(userToRemove.getFirstName() + " " + userToRemove.getLastName() + " removed from the system.");
         } else {
             System.out.println("User not found in the system.");
